@@ -3,8 +3,11 @@ import QuizCard from './quizcard';
 const Dashboard = () => {
     return (
 
+    <div>
+        <h1 className= "title"> Quizzes de MedQuest </h1>
+    
     <div className= "dashboard-container">
-        <h1> Quizzes </h1>
+       
     <QuizCard
     imgSrc="https://www.medquest.com/images/quiz-card-img.png" 
     imgAlt="Quiz"
@@ -14,6 +17,17 @@ const Dashboard = () => {
     link= "/"
 
         />
+
+    <QuizCard
+    imgSrc="https://www.medquest.com/images/quiz-card-img.png" 
+    imgAlt="Quiz"
+    title= "Quiz de Farmacologia"
+    description= "Este es un quiz sencillo de farmacobiologia"
+    btnText="Empezar"
+    link= "/"
+
+          />
+        </div>
     </div>
     );
 };
