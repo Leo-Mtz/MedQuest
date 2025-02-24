@@ -3,22 +3,25 @@
 
 //quiz interface
 //definition of the quiz object and specification of properties and type
-interface Question {
+
+import type {APIRoute} from 'astro';
+interface Quiz {
     id: string;
     title: string;
-    numberOfQuestions: number;
+    points: number;
 }
 
-export async function get(){
 
-    //array de objetos tipo quiz
-    const question= [
-        {id: '1', title: 'Anatomia', numberOfQuestions: 10},
-        {id: '2', title: 'Biologia', numberOfQuestions: 15},
-    ];
+const quizzes: Quiz[] = [
+    { id: '1', title: 'Anatomia', points: 10 },
+    { id: '2', title: 'Biologia', points: 15 },
+];
+
+export const GET: APIRoute = () => {
+
 
     //new response object that will be returned to the client in a JSON string
-    return new Response(JSON.stringify(question), {
+    return new Response(JSON.stringify(quizzes), {
         status: 200, //status code for succesful request
         headers: {
             'Content-Type': 'application/json', //indicates the type of data being sent
