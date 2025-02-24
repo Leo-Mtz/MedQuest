@@ -1,0 +1,16 @@
+---
+import "../styles/global.css"; // Import global styles (optional)
+import Navbar from "../components/navbar.tsx";
+---
+
+<html lang="en">
+  <head>
+    <title>Medical Quiz App</title>
+  </head>
+  <body>
+    <Navbar />
+    <main>
+      <slot /> <!-- This will be replaced with page content -->
+    </main>
+  </body>
+</html>

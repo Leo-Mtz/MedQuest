@@ -1,4 +1,4 @@
-import "../styles/styles.css";
+import "../styles/global.css";
 
 
 export default function Navbar() {
@@ -8,9 +8,6 @@ export default function Navbar() {
          <ul className="nav-list">
             <li>
                <a href="/quizzes" className="nav-item">Quizzes</a>
-            </li>
-            <li>
-               <a href="/about" className="nav-item">About</a>
             </li>
          </ul>
       </nav>
