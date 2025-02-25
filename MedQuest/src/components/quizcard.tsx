@@ -1,34 +1,31 @@
 import  React from 'react';
 import "../styles/quizcard.css";
-import { title } from 'process';
 
 
-
-interface QuizCard {
+//interface for quiz card
+interface QuizCardProp {
     title: string;
     description: string;
+    preguntas: number;
     btnText: string;
     link: string;
-    imgSrc?: string;
-    imgAlt?: string;
 }
 
 //creation of quizcard component
  const QuizCard=({
     title,
     description,
+    preguntas,
     btnText,
     link,
-    imgSrc,
-    imgAlt = "Quiz",
 
-}: QuizCard ) => {
+}: QuizCardProp ) => {
     return (
         <div className="card-container">
     
-        {imgSrc && <img src={imgSrc} alt={imgAlt} className="card-img" />}
         {title && <h2 className="card-title">{title}</h2>}
         {description && <p className="card-description">{description}</p>}
+        {preguntas && <p className="card-preguntas">{preguntas} preguntas</p>}
         <a href={link} className="card-btn">{btnText}</a>
         </div>
     )

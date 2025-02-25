@@ -1,13 +1,13 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import "../styles/global.css";
-import Dashboard from "../components/dashboard";
+import Dashboard from "../components/dashboard.tsx";
 
 ---
 
 
 <Layout>
   
-    <Dashboard />
+    <Dashboard client:load />
 
 </Layout>

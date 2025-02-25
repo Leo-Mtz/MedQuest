@@ -1,35 +1,42 @@
 import QuizCard from './quizcard';
+import React from 'react';
+import useFetchQuiz from "../services/fetchquiz"
 
 const Dashboard = () => {
+
+
+    const {quizzes, loading, error} = useFetchQuiz();
+
+    if(loading)
+    {
+        return <div>Loading...</div>;
+    }
+
+    if(error)
+    {
+        return <div>Error: {error}</div>;
+    }
     return (
 
     <div>
         <h1 className= "title"> Quizzes de MedQuest </h1>
     
     <div className= "dashboard-container">
-       
+    {quizzes.map((quiz:{id:string, title:string, description:string, preguntas:number}) =>(
     <QuizCard
-    imgSrc="https://www.medquest.com/images/quiz-card-img.png" 
-    imgAlt="Quiz"
-    title= "Quiz de Anatomia"
-    description= "Este es un quiz sencillo de anatomia"
-    btnText="Empezar"
-    link= "/"
-
+        key= {quiz.id}
+        title= {quiz.title}
+        description= {quiz.description}
+        preguntas= {quiz.preguntas}
+        btnText="Empezar"
+        link= {`/quiz/${quiz.id}`}
         />
+    ))}
 
-    <QuizCard
-    imgSrc="https://www.medquest.com/images/quiz-card-img.png" 
-    imgAlt="Quiz"
-    title= "Quiz de Farmacologia"
-    description= "Este es un quiz sencillo de farmacobiologia"
-    btnText="Empezar"
-    link= "/"
 
-          />
         </div>
     </div>
-    );
-};
+    ); //end of return
+}; //end of dashboard
 
 export default Dashboard;
