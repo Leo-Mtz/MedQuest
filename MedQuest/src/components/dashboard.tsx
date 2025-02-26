@@ -22,12 +22,12 @@ const Dashboard = () => {
         <h1 className= "title"> Quizzes de MedQuest </h1>
     
     <div className= "dashboard-container">
-    {quizzes.map((quiz:{id:string, title:string, description:string, preguntas:number}) =>(
+    {quizzes.map((quiz:{id:string, title:string, description:string, number_questions:number}) =>(
     <QuizCard
         key= {quiz.id}
         title= {quiz.title}
         description= {quiz.description}
-        preguntas= {quiz.preguntas}
+        preguntas= {quiz.number_questions}
         btnText="Empezar"
         link= {`/quiz/${quiz.id}`}
         />
