@@ -1,4 +1,4 @@
-import QuizCard from './quizcard';
+import QuizCard from '../components/quizcard';
 import React from 'react';
 import useFetchQuiz from "../services/fetchquiz"
 
@@ -22,12 +22,12 @@ const Dashboard = () => {
         <h1 className= "title"> Quizzes de MedQuest </h1>
     
     <div className= "dashboard-container">
-    {quizzes.map((quiz:{id:string, title:string, description:string, number_questions:number}) =>(
+    {quizzes.map((quiz:{id:string, title:string, description:string, number_questions:number, btnText:string, link:string}) =>(
     <QuizCard
-        key= {quiz.id}
+        id= {quiz.id}
         title= {quiz.title}
         description= {quiz.description}
-        preguntas= {quiz.number_questions}
+        number_questions= {quiz.number_questions}
         btnText="Empezar"
         link= {`/quiz/${quiz.id}`}
         />

@@ -1,31 +1,26 @@
 import  React from 'react';
 import "../styles/quizcard.css";
+import type { QuizCard as QuizCardTemplate } from '../pages/api/quiz';
 
 
-//interface for quiz card
-interface QuizCardProp {
-    title: string;
-    description: string;
-    preguntas: number;
-    btnText: string;
-    link: string;
-}
+
 
 //creation of quizcard component
  const QuizCard=({
+    
     title,
     description,
-    preguntas,
+    number_questions,
     btnText,
     link,
 
-}: QuizCardProp ) => {
+}: QuizCardTemplate ) => {
     return (
         <div className="card-container">
     
         {title && <h2 className="card-title">{title}</h2>}
         {description && <p className="card-description">{description}</p>}
-        {preguntas && <p className="card-preguntas">{preguntas} preguntas</p>}
+        {number_questions && <p className="card-preguntas">Preguntas: {number_questions} </p>}
         <a href={link} className="card-btn">{btnText}</a>
         </div>
     )

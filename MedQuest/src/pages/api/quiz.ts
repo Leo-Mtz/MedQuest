@@ -5,18 +5,21 @@
 //definition of the quiz object and specification of properties and type
 
 import type {APIRoute} from 'astro';
-export interface Quiz {
+export interface QuizCard {
     id: string;
     title: string;
     description: string
-    preguntas: number;
+    number_questions: number;
+    btnText: string;
+    link: string;
+    
     
 }
 
 
-const quizzes: Quiz[] = [
-    { id: '1', title: 'Anatomia', description: "Quiz sencillo de anatomia", preguntas: 10 },
-    { id: '2', title: 'Farmacologia', description: "Quiz sencillo de Farmacologia", preguntas: 15 },
+const quizzes: QuizCard[] = [
+    { id: '1', title: 'Anatomia', description: "Quiz sencillo de anatomia", number_questions: 10, btnText: "Empezar", link: "/quiz/1" },
+    { id: '2', title: 'Farmacologia', description: "Quiz sencillo de Farmacologia", number_questions: 15 , btnText: "Empezar", link: "/quiz/2" },
 ];
 
 export const GET: APIRoute = () => {
