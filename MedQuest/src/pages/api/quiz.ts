@@ -18,8 +18,8 @@ export interface QuizCard {
 
 
 const quizzes: QuizCard[] = [
-    { id: '1', title: 'Anatomia', description: "Quiz sencillo de anatomia", number_questions: 10, btnText: "Empezar", link: "/quiz/1" },
-    { id: '2', title: 'Farmacologia', description: "Quiz sencillo de Farmacologia", number_questions: 15 , btnText: "Empezar", link: "/quiz/2" },
+    { id: '1', title: 'Anatomia', description: "Quiz sencillo de anatomia", number_questions: 10, btnText: "Empezar", link: "api/quizzes/1" },
+    { id: '2', title: 'Farmacologia', description: "Quiz sencillo de Farmacologia", number_questions: 15 , btnText: "Empezar", link: "api/quizzes/2" },
 ];
 
 export const GET: APIRoute = () => {

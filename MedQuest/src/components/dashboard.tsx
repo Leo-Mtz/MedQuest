@@ -28,8 +28,8 @@ const Dashboard = () => {
         title= {quiz.title}
         description= {quiz.description}
         number_questions= {quiz.number_questions}
-        btnText="Empezar"
-        link= {`/quiz/${quiz.id}`}
+        btnText={quiz.btnText}
+        link= {quiz.link}
         />
     ))}
 

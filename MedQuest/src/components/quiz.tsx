@@ -1,59 +1,70 @@
 import { useState, useEffect } from 'react';
-import { useRouter } from 'next/router';
 import type { Quiz } from '../pages/api/quizzes/[quizId]'; // Adjust the path based on your actual file structure
+import type {Question} from '../pages/api/quizzes/[quizId]'; // Adjust the path based on your actual file structure}
+import { fetchQuizId } from '../services/fetchQuizId';
 
-const QuizPage = () => {
-  const [quiz, setQuiz] = useState<Quiz | null>(null); // State to store quiz data
-  const [loading, setLoading] = useState<boolean>(true); // Loading state for the fetch request
-  const router = useRouter(); // To get the dynamic quizId from the URL
-  const { quizId } = router.query; // Access the quizId from the URL
+const QuizPage= ({ quizId} : {quizId:string}) => {
+    const [quiz, setQuiz] = useState<Quiz | null>(null);
+    const [loading, setLoading] = useState<boolean>(true);
+    const [error,setError] = useState <string | null>(null);
+    const [currentQuestion, setCurrentQuestion] = useState<number>(0);
 
-  // Fetch quiz data based on quizId
-  useEffect(() => {
-    const fetchQuiz = async () => {
-      if (!quizId) return; // If quizId is not available, don't fetch
-
-      try {
+    useEffect(()=> {
+      const loadQuiz= async() => {
         setLoading(true);
-        const response = await fetch(`/api/quizzes/${quizId}`);
-        const data: Quiz = await response.json();
-        setQuiz(data);
-      } catch (error) {
-        console.error('Error fetching quiz:', error);
-      } finally {
-        setLoading(false);
-      }
-    };
+        const data = await fetchQuizId(quizId);
 
-    fetchQuiz();
-  }, [quizId]); // Only run this effect when quizId changes
+        if(data){
+          setQuiz(data);
+        }else{
+          setError("No se puede cargar el quiz");
+          }
+          setLoading(false);
+      };
 
-  if (loading) {
-    return <div>Loading...</div>;
-  }
+      loadQuiz();
+      
+    
+    },[quizId]);
 
-  if (!quiz) {
-    return <div>Quiz not found!</div>;
-  }
-
-  return (
-    <div>
-      <h1>{quiz.title}</h1>
-
+    if(loading)return <p> Cargando </p>
+    if(error) return <p> Error: {error}</p>
+    if( !quiz) return <p> Quiz not found</p>
+  
+    return (
       <div>
-        {quiz.questions.map((question) => (
-          <div key={question.id}>
-            <h3>{question.question}</h3>
-            <ul>
-              {question.options.map((option, index) => (
-                <li key={index}>{option}</li>
-              ))}
-            </ul>
-          </div>
-        ))}
+        <h1>{quiz.title}</h1>
+
+        <div>
+          <h4> {quiz.questions[currentQuestion].question}</h4>
+          <ul>
+            {quiz.questions[currentQuestion].options.map((option, index) => (
+              <li key={index}>{option}</li>
+            ))}
+          </ul>
+        </div>
+
+        <div>
+        <button
+          onClick={() => setCurrentQuestion((prev) => Math.max(prev - 1, 0))}
+          disabled={currentQuestion === 0}
+        >
+          Anterior
+        </button>
+        <button
+          onClick={() =>
+            setCurrentQuestion((prev) =>
+              Math.min(prev + 1, quiz.questions.length - 1)
+            )
+          }
+          disabled={currentQuestion === quiz.questions.length - 1}
+        >
+          Siguiente
+        </button>
       </div>
     </div>
   );
 };
+
 
 export default QuizPage;
