@@ -7,7 +7,7 @@ export default function Navbar() {
          <a href="/" className="site-title">MedQuest</a>
          <ul className="nav-list">
             <li>
-               <a href="/quizzes" className="nav-item">Quizzes</a>
+               <a href="/quizDashboard" className="nav-item">Quizzes</a>
             </li>
          </ul>
       </nav>

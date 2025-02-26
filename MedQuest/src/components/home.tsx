@@ -10,7 +10,7 @@ const Home=()=>{
       <header className="home-header">
         <h1>Bienvenid@ a MedQuest</h1>
         <p> El lugar para quizzes medicos</p>
-        <a href="/quizzes" className="home-button">Empieza a aprender </a>
+        <a href="/quizDashboard" className="home-button">Iniciar</a>
       </header>
     </div>
     );
