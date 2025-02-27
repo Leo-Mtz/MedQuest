@@ -1,17 +1,18 @@
 import type { APIRoute } from 'astro';
 
+
 // Quiz interface
 export interface Quiz{
     id: string;
     title: string;
-    question: Question[];
+    questions: Question[];
 
 }
 
 
 
 // Question interface
-interface Question {
+export interface Question {
     id: string;
     question: string;
     options: string[];
@@ -19,11 +20,11 @@ interface Question {
 }
 
 // Sample data for quizzes and questions
-const quizzes: Quiz[] = [
+export const quizzes: Quiz[] = [
     {
         id: '1',
         title: 'Anatomia',
-        question: [
+        questions: [
         
             { id: '1', question: '¿Cuál es el hueso más grande en el cuerpo humano?', options: ['Fémur', 'Húmero', 'Tibia'], answer: 'Fémur' },
             { id: '2', question: '¿Cuántas costillas tiene un ser humano?', options: ['24', '12', '20'], answer: '24' },
@@ -39,12 +40,23 @@ const quizzes: Quiz[] = [
         ]
     },
     {
-        id: '2',
-        title: 'Biologia',
-        question: [
-            { id: '1', question: 'What does NSAID stand for?', options: ['Non-Steroidal Anti-Inflammatory Drug', 'Neuro-Sensitive Acidic Inhibitor Drug', 'Nervous System Active Immune Drug'], answer: 'Non-Steroidal Anti-Inflammatory Drug' }
-        ]
-    }
+            id: '2',
+            title: 'Biologia',
+            questions: [
+                { id: '1', question: 'What does NSAID stand for?', options: ['Non-Steroidal Anti-Inflammatory Drug', 'Neuro-Sensitive Acidic Inhibitor Drug', 'Nervous System Active Immune Drug'], answer: 'Non-Steroidal Anti-Inflammatory Drug' },
+                { id: '2', question: 'Which organelle is known as the powerhouse of the cell?', options: ['Mitochondria', 'Nucleus', 'Ribosome'], answer: 'Mitochondria' },
+                { id: '3', question: 'What is the process by which plants convert sunlight into energy?', options: ['Photosynthesis', 'Respiration', 'Fermentation'], answer: 'Photosynthesis' },
+                { id: '4', question: 'Which type of blood cell is responsible for fighting infections?', options: ['White blood cells', 'Red blood cells', 'Platelets'], answer: 'White blood cells' },
+                { id: '5', question: 'What is the main function of DNA?', options: ['Store genetic information', 'Transport oxygen', 'Break down food'], answer: 'Store genetic information' },
+                { id: '6', question: 'Which gas do plants absorb from the atmosphere?', options: ['Carbon dioxide', 'Oxygen', 'Nitrogen'], answer: 'Carbon dioxide' },
+                { id: '7', question: 'What is the largest organ in the human body?', options: ['Skin', 'Liver', 'Brain'], answer: 'Skin' },
+                { id: '8', question: 'Which kingdom do bacteria belong to?', options: ['Monera', 'Fungi', 'Protista'], answer: 'Monera' },
+                { id: '9', question: 'What is the main function of the large intestine?', options: ['Water absorption', 'Digestion of proteins', 'Production of bile'], answer: 'Water absorption' },
+                { id: '10', question: 'Which biomolecule is primarily responsible for speeding up chemical reactions in the body?', options: ['Proteins (enzymes)', 'Carbohydrates', 'Lipids'], answer: 'Proteins (enzymes)' }
+            ]
+        }
+    
+        
 ];
 
 // This is the route for getting a specific quiz

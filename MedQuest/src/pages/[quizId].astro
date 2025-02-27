@@ -1,0 +1,21 @@
+---
+import QuizPage from "../components/quiz";
+import {quizzes} from "../pages/api/quizzes/[quizId]";
+export function getStaticPaths() {
+
+   return quizzes.map((quiz) => {
+        return {
+            params: {
+                quizId: quiz.id,
+            },
+        };
+    });
+
+}
+    const {quizId}= Astro.params;
+    
+console.log("Astro quizId:", quizId);
+
+---
+
+<QuizPage quizId= {quizId} />
