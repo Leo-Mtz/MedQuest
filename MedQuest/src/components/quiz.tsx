@@ -1,38 +1,26 @@
+//Quiz component
+//responsible for loading the requested quiz and displaying the questions
+
+
+//Problem with question getting is here
 import { useState, useEffect } from 'react';
-import type { Quiz } from '../pages/api/quizzes/[quizId]'; // Adjust the path based on your actual file structure
-import type {Question} from '../pages/api/quizzes/[quizId]'; // Adjust the path based on your actual file structure}
-import { fetchQuizId } from '../services/fetchQuizId';
+import type { Quiz } from '../pages/api/quizzes/[quizId]'
+import useFetchQuizId from '../services/fetchQuizId';
+
+
 
 const QuizPage= ({ quizId} : {quizId:string}) => {
-    const [quiz, setQuiz] = useState<Quiz | null>(null);
-    const [loading, setLoading] = useState<boolean>(true);
-    const [error,setError] = useState <string | null>(null);
-    const [currentQuestion, setCurrentQuestion] = useState<number>(0);
 
-    useEffect(()=> {
-      const loadQuiz= async() => {
-        setLoading(true);
-        const data = await fetchQuizId(quizId);
+  const { quiz, loading, error } = useFetchQuizId(quizId);
+  const [currentQuestion, setCurrentQuestion] = useState(0);
 
-        if(data){
-          setQuiz(data);
-        }else{
-          setError("No se puede cargar el quiz");
-          }
-          setLoading(false);
-      };
-
-      loadQuiz();
-      
-    
-    },[quizId]);
-
-    if(loading)return <p> Cargando </p>
-    if(error) return <p> Error: {error}</p>
-    if( !quiz) return <p> Quiz not found</p>
+  if(loading) return <p> Cargando </p>
+  if(error) return <p> Error: {error}</p>
+  if( !quiz) return <p> Quiz not found</p>
   
     return (
       <div>
+
         <h1>{quiz.title}</h1>
 
         <div>
