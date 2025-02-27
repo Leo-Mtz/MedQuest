@@ -63,6 +63,7 @@ export const quizzes: Quiz[] = [
 // We use the :quizId parameter to identify the quiz
 export const GET: APIRoute = ({ params }) => {
     const { quizId } = params; // destructuring the params object to get the quizId
+    console.log("API requested for quizId:", quizId);  // temporary log
 
     // Find the quiz in the quizzes array that matches the quizId
     const quiz = quizzes.find(q => q.id === quizId);

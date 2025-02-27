@@ -1,4 +1,5 @@
 ---
+// filepath: /c:/Users/DELL/OneDrive/MedQuest/MedQuest/src/pages/[quizId].astro
 import QuizPage from "../components/quiz";
 import {quizzes} from "../pages/api/quizzes/[quizId]";
 export function getStaticPaths() {
@@ -18,4 +19,4 @@ console.log("Astro quizId:", quizId);
 
 ---
 
-<QuizPage quizId= {quizId} />
+<QuizPage client:load quizId={quizId} />
