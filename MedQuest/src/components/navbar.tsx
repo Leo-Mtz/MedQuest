@@ -1,3 +1,5 @@
+//navbar component
+
 import "../styles/global.css";
 
 

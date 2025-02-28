@@ -1,3 +1,5 @@
+//quiz component, over here we are rendering the quiz, its questions, answers, buttons,etc...
+
 import { useState } from 'react';
 import type { Quiz } from '../pages/api/quizzes/[quizId]';
 import useFetchQuizId from '../services/fetchQuizId';
@@ -6,13 +8,17 @@ import '../styles/quiz.css'
 //const is used to declare a variable in order to prevent reassignments
 const QuizPage = ({ quizId }: { quizId: string }) => {
   console.log("QuizPage rendering with quizId:", quizId);
+
+  //use hook to fecth quiz data by id
   const { quiz, loading, error } = useFetchQuizId(quizId);
+
+  //tracks in which question we are at
   const [currentQuestion, setCurrentQuestion] = useState(0);
 
     // Track selected answers for each question
-    const [selectedAnswers, setSelectedAnswers] = useState<{[key: string]: string}>({});
+  const [selectedAnswers, setSelectedAnswers] = useState<{[key: string]: string}>({});
     // Track whether the answer has been submitted
-    const [submittedAnswers, setSubmittedAnswers] = useState<{[key: string]: boolean}>({});
+  const [submittedAnswers, setSubmittedAnswers] = useState<{[key: string]: boolean}>({});
     // Track the score
   
 
