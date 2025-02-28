@@ -1,6 +1,8 @@
 //dynamic endpoint
 //Endpoint generated at runtime, data can change based on request
 
+//API que devuelve una lista de quizzes
+
 //quiz interface
 //definition of the quiz object and specification of properties and type
 
@@ -19,7 +21,7 @@ export interface QuizCard {
 
 const quizzes: QuizCard[] = [
     { id: '1', title: 'Anatomia', description: "Quiz sencillo de Anatomia", number_questions: 10, btnText: "Empezar", link: '/1' }, //route to quiz 1
-    { id: '2', title: 'Biologia', description: "Quiz sencillo de Biologia", number_questions: 15 , btnText: "Empezar", link: "/2" }, //route to quiz 2
+    { id: '2', title: 'Biologia', description: "Quiz sencillo de Biologia", number_questions: 10 , btnText: "Empezar", link: "/2" }, //route to quiz 2
 ];
 
 export const GET: APIRoute = () => {
