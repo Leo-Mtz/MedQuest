@@ -1,8 +1,8 @@
+//Quizcard component. Creates the quizcards that thee user will see in the dashboard
+
 import  React from 'react';
 import "../styles/quizcard.css";
 import type { QuizCard as QuizCardTemplate } from '../pages/api/quiz';
-
-
 
 
 //creation of quizcard component

@@ -11,6 +11,7 @@ const usefetchQuiz= () =>{
     const [error, setError]= useState<string | null>(null);
 
     useEffect (() => {
+        console.log("useEffect called");
         const fetchQuiz= async() => {
 
             try{

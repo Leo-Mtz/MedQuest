@@ -24,6 +24,7 @@ const Dashboard = () => {
     <div className= "dashboard-container">
     {quizzes.map((quiz:{id:string, title:string, description:string, number_questions:number, btnText:string, link:string}) =>(
     <QuizCard
+        key= {quiz.id}
         id= {quiz.id}
         title= {quiz.title}
         description= {quiz.description}
