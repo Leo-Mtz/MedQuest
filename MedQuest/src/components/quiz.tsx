@@ -13,7 +13,6 @@ const QuizPage = ({ quizId }: { quizId: string }) => {
     // Track whether the answer has been submitted
     const [submittedAnswers, setSubmittedAnswers] = useState<{[key: string]: boolean}>({});
     // Track the score
-    const [score, setScore] = useState(0);
   
 
     if (loading) {
@@ -32,6 +31,7 @@ const QuizPage = ({ quizId }: { quizId: string }) => {
     }
 
 
+    // Handle selecting an answer for a question
     const question= quiz.questions[currentQuestion];
     const isAnswered= submittedAnswers[question.id] == true;
     const selectedAnswer= selectedAnswers[question.id] || '';
