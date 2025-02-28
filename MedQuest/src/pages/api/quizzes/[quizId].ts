@@ -1,3 +1,5 @@
+//API que devuelve un quiz específico según el id proporcionado en la URL.
+
 import type { APIRoute } from 'astro';
 
 
@@ -40,21 +42,22 @@ export const quizzes: Quiz[] = [
         ]
     },
     {
-            id: '2',
-            title: 'Biologia',
-            questions: [
-                { id: '1', question: 'What does NSAID stand for?', options: ['Non-Steroidal Anti-Inflammatory Drug', 'Neuro-Sensitive Acidic Inhibitor Drug', 'Nervous System Active Immune Drug'], answer: 'Non-Steroidal Anti-Inflammatory Drug' },
-                { id: '2', question: 'Which organelle is known as the powerhouse of the cell?', options: ['Mitochondria', 'Nucleus', 'Ribosome'], answer: 'Mitochondria' },
-                { id: '3', question: 'What is the process by which plants convert sunlight into energy?', options: ['Photosynthesis', 'Respiration', 'Fermentation'], answer: 'Photosynthesis' },
-                { id: '4', question: 'Which type of blood cell is responsible for fighting infections?', options: ['White blood cells', 'Red blood cells', 'Platelets'], answer: 'White blood cells' },
-                { id: '5', question: 'What is the main function of DNA?', options: ['Store genetic information', 'Transport oxygen', 'Break down food'], answer: 'Store genetic information' },
-                { id: '6', question: 'Which gas do plants absorb from the atmosphere?', options: ['Carbon dioxide', 'Oxygen', 'Nitrogen'], answer: 'Carbon dioxide' },
-                { id: '7', question: 'What is the largest organ in the human body?', options: ['Skin', 'Liver', 'Brain'], answer: 'Skin' },
-                { id: '8', question: 'Which kingdom do bacteria belong to?', options: ['Monera', 'Fungi', 'Protista'], answer: 'Monera' },
-                { id: '9', question: 'What is the main function of the large intestine?', options: ['Water absorption', 'Digestion of proteins', 'Production of bile'], answer: 'Water absorption' },
-                { id: '10', question: 'Which biomolecule is primarily responsible for speeding up chemical reactions in the body?', options: ['Proteins (enzymes)', 'Carbohydrates', 'Lipids'], answer: 'Proteins (enzymes)' }
-            ]
-        }
+        "id": "2",
+        "title": "Biología",
+        "questions": [
+            { "id": "1", "question": "¿Qué significa AINE?", "options": ["Antiinflamatorio No Esteroideo", "Inhibidor Ácido Neuro-Sensible", "Medicamento Activo en el Sistema Nervioso"], "answer": "Antiinflamatorio No Esteroideo" },
+            { "id": "2", "question": "¿Qué orgánulo es conocido como la central energética de la célula?", "options": ["Mitocondria", "Núcleo", "Ribosoma"], "answer": "Mitocondria" },
+            { "id": "3", "question": "¿Cómo se llama el proceso mediante el cual las plantas convierten la luz solar en energía?", "options": ["Fotosíntesis", "Respiración", "Fermentación"], "answer": "Fotosíntesis" },
+            { "id": "4", "question": "¿Qué tipo de célula sanguínea es responsable de combatir infecciones?", "options": ["Glóbulos blancos", "Glóbulos rojos", "Plaquetas"], "answer": "Glóbulos blancos" },
+            { "id": "5", "question": "¿Cuál es la función principal del ADN?", "options": ["Almacenar información genética", "Transportar oxígeno", "Descomponer los alimentos"], "answer": "Almacenar información genética" },
+            { "id": "6", "question": "¿Qué gas absorben las plantas de la atmósfera?", "options": ["Dióxido de carbono", "Oxígeno", "Nitrógeno"], "answer": "Dióxido de carbono" },
+            { "id": "7", "question": "¿Cuál es el órgano más grande del cuerpo humano?", "options": ["Piel", "Hígado", "Cerebro"], "answer": "Piel" },
+            { "id": "8", "question": "¿A qué reino pertenecen las bacterias?", "options": ["Monera", "Fungi", "Protista"], "answer": "Monera" },
+            { "id": "9", "question": "¿Cuál es la función principal del intestino grueso?", "options": ["Absorción de agua", "Digestión de proteínas", "Producción de bilis"], "answer": "Absorción de agua" },
+            { "id": "10", "question": "¿Qué biomolécula es responsable principalmente de acelerar las reacciones químicas en el cuerpo?", "options": ["Proteínas (enzimas)", "Carbohidratos", "Lípidos"], "answer": "Proteínas (enzimas)" }
+        ]
+    }
+    
     
         
 ];
