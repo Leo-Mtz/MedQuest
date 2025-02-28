@@ -1,5 +1,6 @@
 ---
-// filepath: /c:/Users/DELL/OneDrive/MedQuest/MedQuest/src/pages/[quizId].astro
+export const prerender = true;
+
 import QuizPage from "../components/quiz";
 import {quizzes} from "../pages/api/quizzes/[quizId]";
 export function getStaticPaths() {
