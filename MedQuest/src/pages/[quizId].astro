@@ -1,10 +1,19 @@
 ---
+//Dynamic quiz page route
+//the file creates the dynamic route for each quiz based on its id
+//the file also loads the quiz page component and passes the quiz id to it
+
+
+//static pre rendering for all quiz pages at build time
 export const prerender = true;
 
 import QuizPage from "../components/quiz";
 import {quizzes} from "../pages/api/quizzes/[quizId]";
+
+//getStaticPaths function to generate all the paths for the quizzes
 export function getStaticPaths() {
 
+    //map through all quizzes and create a route parameter object for each
    return quizzes.map((quiz) => {
         return {
             params: {
@@ -14,6 +23,7 @@ export function getStaticPaths() {
     });
 
 }
+//extract the quizId parameter from the URL
     const {quizId}= Astro.params;
     
 console.log("Astro quizId:", quizId);
