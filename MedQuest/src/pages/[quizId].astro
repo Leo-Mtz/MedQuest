@@ -30,4 +30,7 @@ console.log("Astro quizId:", quizId);
 
 ---
 
+<!-- Render the react quiz component with the extracted quizId 
+ client:load ensures the component is hydrated(hydration: process of taking static HTML and turning it into interactive JS) immediately when the page loads
+  This is necessary for interactive elements like buttons and state management -->
 <QuizPage client:load quizId={quizId} />
