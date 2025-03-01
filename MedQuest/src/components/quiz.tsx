@@ -43,6 +43,7 @@ const QuizPage = ({ quizId }: { quizId: string }) => {
     const isAnswered= submittedAnswers[question.id] == true;
     const selectedAnswer= selectedAnswers[question.id] || '';
 
+    //handle user selection of an answer
     const handleSelectAnswer= (option: string) =>{
       if ( isAnswered) return; 
       setSelectedAnswers({
@@ -51,10 +52,16 @@ const QuizPage = ({ quizId }: { quizId: string }) => {
       });
     };
 
+
+    //handle user submission
       const handleSubmitAnswer= () => {
+        //condition that prevents the submission if no answer has been selected 
         if (!selectedAnswer || isAnswered) return;
+        //checks if answer is correct
         const isCorrect = selectedAnswer === question.answer;
      
+        
+        //marks the question as answered
         setSubmittedAnswers({
           ...submittedAnswers,
           [question.id]: true
@@ -69,6 +76,7 @@ const QuizPage = ({ quizId }: { quizId: string }) => {
       
     
 
+        //rendering of quiz interface
   return (
     <div className="quizContainer">
       <header className="quiz-header">
@@ -78,8 +86,10 @@ const QuizPage = ({ quizId }: { quizId: string }) => {
         Question {currentQuestion +1} of {quiz.questions.length}
         </div>
       <div className="question-container">
+        {/* question text */}
         <h4>{quiz.questions[currentQuestion].question}</h4>
         <ul className="options-list">
+          {/* options list */}
           {quiz.questions[currentQuestion].options.map((option, index) => (
             <li 
             key={index} 
@@ -95,6 +105,7 @@ const QuizPage = ({ quizId }: { quizId: string }) => {
           ))}
         </ul>
 
+          {/* submit button - only shown when an answer is selected and not yet submitted */}
         {!isAnswered && selectedAnswer && (
           <button 
             className="submit-button"
